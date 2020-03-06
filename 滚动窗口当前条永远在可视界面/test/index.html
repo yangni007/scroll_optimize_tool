@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .scroll {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            border: 1px solid greenyellow;
+        }
+        .list {
+            height: 20px;
+            background-color: khaki;
+        }
+    </style>
+</head>
+<body>
+    <script src="../index.js"></script>
+    <!-- 列表滚动 -->
+    <div class="scroll" id="scroll">
+        <div class="list"></div>
+    </div>
+    <script>
+        let scroll = document.querySelector('#scroll');
+        let str = '';
+        for(let i = 0; i < 20; i++) {
+            str += '<div class="list">'+ i +'</div>'
+        }
+        scroll.innerHTML = str;
+        
+        
+        function up() {
+            console.log('keyup', scrollData.activeIndex);
+            
+        }
+        function down() {
+            console.log('keydown', scrollData.activeIndex);
+            
+        }
+        let scrollData = {
+            activeIndex: 0,
+            total: 20,
+            el: scroll,
+            list_height: 20
+        }
+        new ScrollActiveListVisibility(
+            scrollData,
+            down,
+            up
+        )
+    </script>
+</body>
+</html>
